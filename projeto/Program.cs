@@ -6,13 +6,14 @@ string[] usuario = new string[qtdCadastro];
 int opcao = 0;
 int i = 0;
 
-while (opcao != 3)
+while (opcao != 4)
 {
     Console.WriteLine("""
     
-    1) Novo usuário:
-    2) Buscar usuário:
-    3) Sair.
+    1) Novo usuário
+    2) Buscar usuário
+    3) Excluir um usuário
+    4) Sair
 
     """);
 
@@ -36,6 +37,9 @@ while (opcao != 3)
             Console.WriteLine("Digite o nome do usuário que você deseja buscar: ");
             break;
         case 3:
+            Console.WriteLine("Escolha qual o usuário que será excluido:");
+            break;
+        case 4:
             Console.WriteLine("Saindo...");
             break;
         default:
