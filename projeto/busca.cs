@@ -52,18 +52,29 @@ while (true)
             continue;
         }
 
-        if (opcao == "1" && nomes[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
-        if (opcao == "2" && emails[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
-        if (opcao == "3" && cpfs[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
-        if (opcao == "4" && usernames[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
+        switch (opcao)
+        {
+            case "1":
+                if (nomes[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
+                break;
+            case "2":
+                if (emails[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
+                break;
+            case "3":
+                if (cpfs[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
+                break;
+            case "4":
+                if (usernames[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
+                break;
+        }
 
-        if (usuarioEncontrado == true)
+        if (usuarioEncontrado)
         {
             break;
         }
     }
 
-    if (usuarioEncontrado == true)
+    if (usuarioEncontrado)
     {
         Console.WriteLine($"Usuário encontrado: {nomes[indiceEncontrado]}, {emails[indiceEncontrado]}, {cpfs[indiceEncontrado]}, {usernames[indiceEncontrado]}");
 
@@ -72,10 +83,19 @@ while (true)
             Console.Write("Deseja excluir este usuário? (s/n)\n >> ");
             if (Console.ReadLine() == "s")
             {
-                nomes[indiceEncontrado] = "";
-                emails[indiceEncontrado] = "";
-                cpfs[indiceEncontrado] = "";
-                usernames[indiceEncontrado] = "";
+                for (int j = indiceEncontrado; j < tam - 1; j++)
+                {
+                    nomes[j] = nomes[j + 1];
+                    emails[j] = emails[j + 1];
+                    cpfs[j] = cpfs[j + 1];
+                    usernames[j] = usernames[j + 1];
+                }
+
+                nomes[tam - 1] = null;
+                emails[tam - 1] = null;
+                cpfs[tam - 1] = null;
+                usernames[tam - 1] = null;
+
                 Console.WriteLine("Usuário excluído com sucesso.");
             }
             else
