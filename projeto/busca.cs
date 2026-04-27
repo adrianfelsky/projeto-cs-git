@@ -28,13 +28,25 @@ while (true)
         Console.Write($"{operacaoNome} por nome(1), email(2), cpf(3) ou username(4)?\n >> ");
         opcao = Console.ReadLine();
 
-        if (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4")
+        //if (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4")
+        //{
+        //    menuValido = true;
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Opção inválida, tente novamente.");
+        //}
+        switch(opcao)
         {
-            menuValido = true;
-        }
-        else
-        {
-            Console.WriteLine("Opção inválida, tente novamente.");
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+                menuValido = true;
+                break;
+            default:
+                Console.WriteLine("Opção inválida, tente novamente.");
+                break;
         }
     }
 
@@ -54,17 +66,12 @@ while (true)
 
         switch (opcao)
         {
-            case "1":
-                if (nomes[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
-                break;
-            case "2":
-                if (emails[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
-                break;
-            case "3":
-                if (cpfs[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
-                break;
-            case "4":
-                if (usernames[i] == busca) { usuarioEncontrado = true; indiceEncontrado = i; }
+            case "1" when nomes[i] == busca:
+            case "2" when emails[i] == busca:
+            case "3" when cpfs[i] == busca:
+            case "4" when usernames[i] == busca:
+                usuarioEncontrado = true;
+                indiceEncontrado = i;
                 break;
         }
 
