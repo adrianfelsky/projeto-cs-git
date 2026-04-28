@@ -6,16 +6,17 @@ string[] usuario = new string[qtdCadastro];
 int opcao = 0;
 int indice = 0;
 
-while (opcao != 4)
+while (opcao != 5)
 {
+
     Console.WriteLine("""
+                1) Novo usuário
+                2) Buscar usuário
+                3) Excluir um usuário
+                4) Listagem
+                5) Sair
 
-            1) Novo usuário
-            2) Buscar usuário
-            3) Excluir um usuário
-            4) Sair
-
-            """);
+        """);
 
 
 
@@ -152,6 +153,15 @@ while (opcao != 4)
 
 
         case 4:
+
+            Console.WriteLine("Usuários encontrados:");
+            for (int i = 0; i < qtdCadastro; i++)
+            {
+                if(nomes[i]!=null) Console.WriteLine($"{nomes[i]}, {email[i]}, {cpf[i]}, {usuario[i]}");
+                else if (i == qtdCadastro - 1 && nomes[0] == null) Console.WriteLine("Nenhum usuário registrado.");
+            }
+            break;
+        case 5:
             Console.WriteLine("Saindo...");
             break;
 
