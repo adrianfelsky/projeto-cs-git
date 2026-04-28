@@ -6,21 +6,31 @@ string[] usuario = new string[qtdCadastro];
 int opcao = 0;
 int indice = 0;
 
+Console.WriteLine("""
+    
+    
+    ||||||||| BANCO DE DADOS CLIENTES |||||||||
+
+
+    """);
+
 while (opcao != 5)
 {
 
     Console.WriteLine("""
-                1) Novo usuário
-                2) Buscar usuário
-                3) Excluir um usuário
-                4) Listagem
-                5) Sair
+        Escolha uma opção:
+
+        1) Novo usuário
+        2) Buscar usuário
+        3) Excluir um usuário
+        4) Listagem
+        5) Sair
 
         """);
 
 
 
-    Console.Write("Escolha uma opção: ");
+    Console.Write(" >> ");
     if (!int.TryParse(Console.ReadLine(), out opcao))
     {
         Console.WriteLine("Por favor, digite um número válido.");
@@ -33,23 +43,21 @@ while (opcao != 5)
         case 1:
             if (indice == qtdCadastro)
             {
-                Console.WriteLine("Limite de usuários atingido!");
+                Console.WriteLine("Limite de usuários atingido!\n");
                 continue;
             }
-            Console.Write("Digite seu nome completo: ");
+            Console.Write("Digite seu nome completo:\n >> ");
             nomes[indice] = Console.ReadLine();
-            Console.Write("Informe seu e-mail: ");
+            Console.Write("Informe seu e-mail:\n >> ");
             email[indice] = Console.ReadLine();
-            Console.Write("Insira o número do seu CPF: ");
+            Console.Write("Insira o número do seu CPF:\n >> ");
             cpf[indice] = Console.ReadLine();
-            Console.Write("Defina o nome do seu usuário: ");
+            Console.Write("Defina o nome do seu usuário:\n >> ");
             usuario[indice] = Console.ReadLine();
             Console.WriteLine("Cadastro concluído com sucesso!");
 
             indice++;
             break;
-
-
 
         case 2:
         case 3:
